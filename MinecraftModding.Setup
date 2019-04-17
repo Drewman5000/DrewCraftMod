@@ -1,0 +1,29 @@
+The way I set up the minecraft modding.
+I followed this youtube video with a few exceptions since we're on MacOS:
+https://youtu.be/N9E1mf8LJXg
+
+In the vid he has you get latest Forge mdk:
+https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.13.2.html
+
+Then you get the compatible java jdk:
+https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+I got 1.8.0_202.jdk
+
+Also get the Eclipse IDE:
+https://www.eclipse.org/downloads/
+
+Unzip the Forge mdk
+Place all Forge files inside a folder that you will use for your modding.
+for macOS I had to install gradle using homebrew:
+https://docs.gradle.org/current/userguide/installation.html
+
+Then you can navigate to your Modpack folder from within terminal
+cd /Users/andrewhyland/Desktop/MinecraftMod/DrewCraftMod
+
+Then use the gradlew command:
+./gradlew eclipse
+
+to compile or decomp or whatever it does.
+
+Then run eclipse as he says in the end of the video.
+
