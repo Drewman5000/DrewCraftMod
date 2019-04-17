@@ -18,7 +18,7 @@ for macOS I had to install gradle using homebrew:
 https://docs.gradle.org/current/userguide/installation.html
 
 Then you can navigate to your Modpack folder from within terminal
-cd /Users/andrewhyland/Desktop/MinecraftMod/DrewCraftMod
+cd ~/Desktop/MinecraftMod/DrewCraftMod
 
 Then use the gradlew command:
 ./gradlew eclipse
@@ -27,3 +27,18 @@ to compile or decomp or whatever it does.
 
 Then run eclipse as he says in the end of the video.
 
+I also added a custom function to my .bash_profile to do some things for me automatically with a single command:
+Many times that file does not exist yet, so:
+touch .bash_profile #creates file
+sudo nano ~/.bash_profile #opens in editor to add the stuff below. Be sure that you created it in the home directory ( ~/)
+
+# allow switching java versions
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+# add DrewCraftMod directory to PATH so that gradle can be in that directory and still accessed from outside
+export PATH=$PATH:/path/goes/here/DrewCraftMod/bin
+# make a mcdev function as a workaround until Eclipse "run" button works with beta Forge build
+mcdev() {
+  cd /path/to/DrewCraftMod
+  ./gradlew runClient
+}
