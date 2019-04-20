@@ -42,3 +42,17 @@ mcdev() {
   cd /path/to/DrewCraftMod
   ./gradlew runClient
 }
+
+
+Discussion from Video 4:
+How to add custom stairs:
+First create CustomBlockStairs class in a new package com.yourname.yourmodid.blocks, it extends BlockStairs and have a public constructor with (IBlockState, Properties) as parameters. You need to do this because forge have not fully deobfuscated the relevant classes so they had it protected.
+Then go to your ItemList and BlockList and add your Block and Item.
+In your main class add these into their respective method:
+    ItemList.your_block = new ItemBlock(...).setRegistryName(location(“your_block”)),     \\Copy and paste from existing code to fill in the ... and do necessary changes.
+    BlockList.your_block = new CustomBlockStairs(BlockList.your_origin_block.getDefaultState(), ...).setRegistryName(location(“your_block”)),         \\Same, replace ... by copying and pasting.
+
+Texture part:
+Go to the External Libraries, grab vanilla stairs’ json file and do necessary changes. You’ll need 5 json files, 1 in blockstates, 3 in models.block, 1 in models.item.
+
+Finally, add your item to your language file.﻿
